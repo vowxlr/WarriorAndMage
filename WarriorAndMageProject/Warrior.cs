@@ -11,8 +11,9 @@ namespace WarriorAndMageProject
         private int rage;
         private int strength;
         private const int strengthMultiplier = 20;
+        private int defense;
 
-        public Warrior(int maxHealth, int baseDamage, int strength, string name, Inventory inventory) : base(maxHealth, baseDamage, name, inventory)
+        public Warrior(string type, int maxHealth, int baseDamage, int strength, string name, Inventory inventory) : base(type, maxHealth, baseDamage, name, inventory)
         {
             rage = 0;
             this.strength = strength;
@@ -27,6 +28,35 @@ namespace WarriorAndMageProject
         public override void ApplyDamage(int damage)
         {
             throw new NotImplementedException();
+        }
+        public void EqupWeapon(EquipmentManager inv, Weapon weap)
+        {
+            if (Type == weap.Belong)
+            {
+                strength += inv.EquipWeap(weap);
+            }
+        }
+        public void UnEqupWeapon(EquipmentManager inv, Weapon weap)
+        {
+            if (Type == weap.Belong)
+            {
+                strength -= inv.UnEquipWeap(weap);
+            }
+        }
+        public void EqupArmor(EquipmentManager inv, Armor arm)
+        {
+            if (Type == arm.Belong)
+            {
+                defense = inv.EquipArmor(arm);
+            }
+        }
+        public void UnEqupArmor(EquipmentManager inv, Armor arm)
+        {
+            if (Type == arm.Belong)
+            {
+                inv.UnEquipArmor(arm);
+                defense = 0;
+            }
         }
     }
 }

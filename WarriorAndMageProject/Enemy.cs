@@ -15,7 +15,7 @@ namespace WarriorAndMageProject
 
         private readonly Item droppedItem;
 
-        public Enemy(int maxHealth, int baseDamage, int droppedGold, int droppedExperience, float chanceItemDrop, Item droppedItem, string name) : base(maxHealth, baseDamage, name)
+        public Enemy(string type, int maxHealth, int baseDamage, int droppedGold, int droppedExperience, float chanceItemDrop, Item droppedItem, string name) : base(maxHealth, baseDamage, name, type)
         {
             this.droppedGold = droppedGold;
             this.droppedExperience = droppedExperience;

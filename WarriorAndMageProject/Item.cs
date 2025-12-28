@@ -9,9 +9,13 @@ namespace WarriorAndMageProject
     internal class Item
     {
         protected readonly int maxStack;
-
+        protected readonly string belong;
         protected readonly string name;
         protected readonly string description;
+        public string Belong
+        {
+            get { return belong; }
+        }
 
         public int MaxStack
         {
@@ -37,11 +41,13 @@ namespace WarriorAndMageProject
             }
         }
 
-        public Item(int maxStack, string name, string description)
+        public Item(int maxStack, string name, string description, string belong)
         {
             this.maxStack = maxStack;
             this.name = name;
             this.description = description;
+            this.belong = belong;
+
         }
     }
 }

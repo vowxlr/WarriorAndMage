@@ -12,7 +12,7 @@ namespace WarriorAndMageProject
         protected int health;
         protected int maxHealth;
         protected int baseDamage;
-
+        protected string type;
         protected string name;
 
         public int Health
@@ -38,11 +38,27 @@ namespace WarriorAndMageProject
                 return name;
             }
         }
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+        }
 
-        public Character (int maxHealth, int baseDamage, string name)
+        public Character (int maxHealth, int baseDamage, string name, string type)
         {
             this.maxHealth = maxHealth;
             this.health = this.maxHealth;
+            this.baseDamage = baseDamage;
+            this.name = name;
+            this.type = type;
+
+        }
+
+        protected Character(int maxHealth, int baseDamage, string name)
+        {
+            this.maxHealth = maxHealth;
             this.baseDamage = baseDamage;
             this.name = name;
         }

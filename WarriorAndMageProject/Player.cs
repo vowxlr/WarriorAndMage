@@ -32,7 +32,7 @@ namespace WarriorAndMageProject
             } 
         }
 
-        protected Player(int maxHealth, int baseDamage, int endurance, string name, Inventory inventory) : base(maxHealth, baseDamage, name)
+        protected Player(string type, int maxHealth, int baseDamage, int endurance, string name, Inventory inventory) : base(maxHealth, baseDamage, name, type)
         {
             this.endurance = endurance;
             this.maxHealth = maxHealth + enduranceMultiplier * endurance;
@@ -41,15 +41,12 @@ namespace WarriorAndMageProject
             this.inventory = inventory;
         }
 
-        public Player(int maxHealth, int baseDamage, string name, Inventory inventory) : base(maxHealth, baseDamage, name)
+        public Player(string type, int maxHealth, int baseDamage, string name, Inventory inventory) : base(maxHealth, baseDamage, name, type)
         {
+            this.type = type;
         }
 
-        public override void ApplyDamage(int damage)
-        {
-            damage = damage - EquipmentManager.GetArmorPoints();
-            base.ApplyDamage(damage);
-        }
+
 
         public void Healing(int additiveHealthPoints)
         {
